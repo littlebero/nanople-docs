@@ -19,6 +19,14 @@ const sidebars = {
         'engineering/example-drift',
       ],
     },
+    {
+      type: 'category',
+      label: 'Articles',
+      collapsed: false,
+      items: [
+        'articles/ai-agent-24hr-employee-reality',
+      ],
+    },
   ],
 };
 
