@@ -18,12 +18,11 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local-dir: ./build/
-          server-dir: ./public_html/
-          dangerous-clean-slate: false
+      - name: Deploy to Hostinger via SFTP (lftp)
+        run: |
+          sudo apt-get update && sudo apt-get install -y lftp
+          lftp -u "${{ secrets.FTP_USER }},${{ secrets.FTP_PASS }}" \
+            -e "set sftp:connect-program 'ssh -o StrictHostKeyChecking=no -p 65002'; \
+                mirror --reverse --delete --verbose ./build/ /public_html/; \
+                quit" \
+            sftp://217.196.54.108
