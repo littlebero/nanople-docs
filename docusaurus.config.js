@@ -58,7 +58,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: '',
+        copyright: 'Copyright © 2026 Nanople. All rights reserved.',
       },
       prism: {
         theme: prismThemes.github,
