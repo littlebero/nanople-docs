@@ -23,6 +23,6 @@ jobs:
           sudo apt-get update && sudo apt-get install -y lftp
           lftp -u "${{ secrets.FTP_USER }},${{ secrets.FTP_PASS }}" \
             -e "set sftp:connect-program 'ssh -o StrictHostKeyChecking=no -p 65002'; \
-                mirror --reverse --delete --verbose ./build/ /public_html/; \
+                mirror --reverse --delete --verbose ./build/ /home/u532905086/domains/nanople.com/public_html/; \
                 quit" \
             sftp://217.196.54.108
