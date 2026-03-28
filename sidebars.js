@@ -2,6 +2,12 @@ const sidebars = {
   docs: [
     {
       type: 'category',
+      label: 'Context Engineering',
+      collapsed: false,
+      items: ['context-engineering/practitioners-guide'],
+    },
+    {
+      type: 'category',
       label: 'Troubleshooting',
       collapsed: false,
       items: [
